@@ -23,12 +23,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        ?>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>PiRoom</title>
+    
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="container">
+        <div id="roomColorControl">
+            <table>
+                <tr>
+                    <td><center>R</center></td>
+                    <td><center>G</center></td>
+                    <td><center>B</center></td>
+                </tr>
+                <tr>
+                    <td><input id="ledRvalue" name="ledRvalue" class="ledValue" type="number" max="255" min="0"></td>
+                    <td><input id="ledGvalue" name="ledGvalue" class="ledValue" type="number" max="255" min="0"></td>
+                    <td><input id="ledBvalue" name="ledBvalue" class="ledValue" type="number" max="255" min="0"></td>
+                </tr>
+                <tr>
+                    <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
+                    <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
+                    <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
+                </tr>
+            <table>
+        </div>
+    </div>
+</body>
 </html>
