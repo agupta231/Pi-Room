@@ -35,7 +35,6 @@ THE SOFTWARE.
 <body>
     <div id="container">
         <div id="roomColorControl">
-            <span id='sweg'>0</span>
             <table>
                 <tr>
                     <td><center>R</center></td>
@@ -43,14 +42,14 @@ THE SOFTWARE.
                     <td><center>B</center></td>
                 </tr>
                 <tr>
-                    <td><input id="ledRvalue" name="ledRvalue" class="ledValue" type="number" max="255" min="0"></td>
-                    <td><input id="ledGvalue" name="ledGvalue" class="ledValue" type="number" max="255" min="0"></td>
-                    <td><input id="ledBvalue" name="ledBvalue" class="ledValue" type="number" max="255" min="0"></td>
+                    <td><input id="ledRvalue" name="ledRvalue" class="ledValue" type="number" max="255" min="0" oninput="ledValue(this.value, 'R')"></td>
+                    <td><input id="ledGvalue" name="ledGvalue" class="ledValue" type="number" max="255" min="0" oninput="ledValue(this.value, 'G')"></td>
+                    <td><input id="ledBvalue" name="ledBvalue" class="ledValue" type="number" max="255" min="0" oninput="ledValue(this.value, 'B')"></td>
                 </tr>
                 <tr>
-                    <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'r')"></center></td>
-                    <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'g')"></center></td>
-                    <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'b')"></center></td>
+                    <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'R')"></center></td>
+                    <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'G')"></center></td>
+                    <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'B')"></center></td>
                 </tr>
             <table>
         </div>
