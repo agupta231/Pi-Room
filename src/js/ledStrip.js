@@ -23,5 +23,9 @@
  */
 
 function ledSlider(val, color) {
-    document.getElementById('sweg').innerHTML = val;
+    document.getElementById('led' + color + 'value').value = val;
+}
+
+function ledValue(val, color) {
+    document.getElementById('led' + color + 'slider').value = val;
 }
