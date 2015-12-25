@@ -28,10 +28,14 @@ THE SOFTWARE.
     <title>PiRoom</title>
     
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/ledStrip.js"></script>
 </head>
 <body>
     <div id="container">
         <div id="roomColorControl">
+            <span id='sweg'>0</span>
             <table>
                 <tr>
                     <td><center>R</center></td>
@@ -44,9 +48,9 @@ THE SOFTWARE.
                     <td><input id="ledBvalue" name="ledBvalue" class="ledValue" type="number" max="255" min="0"></td>
                 </tr>
                 <tr>
-                    <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
-                    <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
-                    <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="5" class="ledSlider"></center></td>
+                    <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'r')"></center></td>
+                    <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'g')"></center></td>
+                    <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="5" class="ledSlider" oninput="ledSlider(this.value, 'b')"></center></td>
                 </tr>
             <table>
         </div>

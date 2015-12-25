@@ -22,3 +22,6 @@
  * THE SOFTWARE.
  */
 
+function ledSlider(val, color) {
+    document.getElementById('sweg').innerHTML = val;
+}
