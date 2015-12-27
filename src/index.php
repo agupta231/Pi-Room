@@ -25,7 +25,7 @@ THE SOFTWARE.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PiRoom</title>
+    <title>PiRoom User Access</title>
     
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
     
