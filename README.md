@@ -7,3 +7,6 @@ visit http://ankur.gupta-web.com/blog/category/personal-projects/smart-room/
 # Features and Updates
 #1.0
 Basic website
+
+#1.1
+Basic LED Strip support
