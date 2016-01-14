@@ -22,5 +22,8 @@
  * THE SOFTWARE.
  */
 
-var ws = new WebSocket("ws://192.168.167.28:8080");
+var ws = new WebSocket("ws://192.168.167.28:8080/");
 
+ws.onmessage = function(e) {
+    
+}
