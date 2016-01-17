@@ -1,7 +1,9 @@
+<?php
+
 /* 
  * The MIT License
  *
- * Copyright 2015 github.com/agupta231.
+ * Copyright 2016 github.com/agupta231.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +24,22 @@
  * THE SOFTWARE.
  */
 
-var ledStatus = false;
+require_once 'WebSockets.php';
 
-function ledSlider(val, color) {
-    document.getElementById('led' + color + 'value').value = val;
+class Server extends WebSocketServer {
+    
+  protected function process ($user, $message) {
+    $this->send($user,$message);
+  }
+  protected function connected ($user) { }
+  protected function closed ($user) { }
 }
 
-function ledValue(val, color) {
-    document.getElementById('led' + color + 'slider').value = val;
-}
+$server = new Server("localhost", "1738");
 
-function WSlider(val) {
-
+try {
+    $server->run();
+} 
+catch (Exception $e) {
+    $server->stdout($e->getMessage());
 }

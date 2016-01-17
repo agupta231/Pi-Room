@@ -1,7 +1,7 @@
 /* 
  * The MIT License
  *
- * Copyright 2015 github.com/agupta231.
+ * Copyright 2016 github.com/agupta231.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +22,8 @@
  * THE SOFTWARE.
  */
 
-var ledStatus = false;
+var ws = new WebSocket("ws://192.168.167.28:8080/");
 
-function ledSlider(val, color) {
-    document.getElementById('led' + color + 'value').value = val;
-}
-
-function ledValue(val, color) {
-    document.getElementById('led' + color + 'slider').value = val;
-}
-
-function WSlider(val) {
-
+ws.onmessage = function(e) {
+    
 }
