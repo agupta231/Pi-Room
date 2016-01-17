@@ -37,3 +37,12 @@ class Server extends WebSocketServer {
 
     }
 }
+
+$server = new Server("localhost", "1738");
+
+try {
+    $server->run();
+} 
+catch (Exception $e) {
+    $server->stdout($e->getMessage());
+}
