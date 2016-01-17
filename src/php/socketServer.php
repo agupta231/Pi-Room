@@ -26,3 +26,14 @@
 
 require_once 'WebSockets.php';
 
+class Server extends WebSocketServer {
+    protected function process($user) {
+        $this->send($user, $message);
+    }
+    protected function connected($user) {
+        
+    }
+    protected function closed($user) {
+
+    }
+}
