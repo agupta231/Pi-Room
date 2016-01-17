@@ -27,15 +27,18 @@
 require_once 'WebSockets.php';
 
 class Server extends WebSocketServer {
-    protected function process($user) {
-        $this->send($user, $message);
-    }
-    protected function connected($user) {
-        
-    }
-    protected function closed($user) {
+  
+  protected function process ($user, $message) {
+    $this->send($user,$message);
+  }
+  
+  protected function connected ($user) {
 
-    }
+  }
+  
+  protected function closed ($user) {
+
+  }
 }
 
 $server = new Server("localhost", "1738");
