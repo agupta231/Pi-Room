@@ -10,3 +10,6 @@ Basic website
 
 #1.1
 Basic LED Strip support
+Client should be able to access the Pi's LED webpage through a webpage, and 
+there will be a realtime connection between the client and the server, making
+for a seamless experience.
