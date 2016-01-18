@@ -22,8 +22,17 @@
  * THE SOFTWARE.
  */
 
-var ws = new WebSocket("ws://192.168.167.28:8080/");
+var URL = "ws://192.168.167.28:1738";
+var ws = new WebSocket(URL);
 
+ws.onopen = function(e) {
+    document.getElementById('serverStatus').innerHTML = "Connected";
+    document.getElementById('serverStatus').style.color = "green";
+}
 ws.onmessage = function(e) {
     
+}
+ws.onclose = function(e) {
+    document.getElementById('serverStatus').innerHTML = "Not Connected";
+    document.getElementById('serverStatus').style.color = "red";
 }

@@ -35,6 +35,7 @@ THE SOFTWARE.
 </head>
 <body>
     <div id="container">
+        <span id="serverStatus"></span>
         <div id="roomColorControl">
             <input type="radio" name='ledActive' id="onCheckbox" value="on">On</br>
             <input type='radio' name="ledActive" id='offCheckbox' value="off">Off</br>
