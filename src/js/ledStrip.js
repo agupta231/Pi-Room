@@ -23,15 +23,44 @@
  */
 
 var ledStatus = false;
+var whiteToggle = false;
 
 function ledSlider(val, color) {
     document.getElementById('led' + color + 'value').value = val;
+    ws.send("led," + color + "," + val);
+
+    whiteToggle = false;
 }
 
 function ledValue(val, color) {
     document.getElementById('led' + color + 'slider').value = val;
+    ws.send("led," + color + "," + val);
+
+    whiteToggle = false;
 }
 
 function WSlider(val) {
+    if(!whiteToggle) {
+        var r = document.getElementById("ledRvalue").value;
+        var g = document.getElementById("ledGvalue").value;
+        var b = document.getElementById("ledBvalue").value;
 
+        var wValue = (r + g + b) / 3;
+
+        document.getElementById("ledWValue").value = wValue;
+        document.getElementById("ledRvalue").value = wValue;
+        document.getElementById("ledGvalue").value = wValue;
+        document.getElementById("ledBvalue").value = wValue;
+
+        ws.send("led,w," + wValue);
+        whiteToggle = true;
+    }
+    else {
+        document.getElementById("ledWValue").value = val;
+        document.getElementById("ledRvalue").value = val;
+        document.getElementById("ledGvalue").value = val;
+        document.getElementById("ledBvalue").value = val;
+
+        ws.send("led,w," + val);
+    }
 }
