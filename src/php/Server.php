@@ -77,6 +77,7 @@ function perform_handshaking($receved_header,$client_conn, $host, $port)
 $host = 'localhost';
 $port = '1738';
 $null = NULL;
+$file = fopen('/var/log/piroom/log.txt', "a") or die ("File cannot be opened");
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
@@ -88,8 +89,7 @@ $clients = array($socket);
 
 echo 'Socket listening on host: ' . $host . ' port: ' . $port;
 
-while (true)
-{
+while (true) {
     $changed = $clients;
 
     socket_select($changed, $null, $null, 0, 10);
@@ -116,7 +116,7 @@ while (true)
 
             $createResponse = json_encode(array('server' => $ip . ' : ' . utf8_encode($received_text)));
 
-            echo $received_text . PHP_EOL;
+            echo $received_text;
 
             $response_text = mask($createResponse);
             send_message($response_text);
