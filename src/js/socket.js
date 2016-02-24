@@ -22,19 +22,18 @@
  * THE SOFTWARE.
  */
 
-(function() {
-    var URL = "ws://25.14.206.214:1738";
-    var ws = new WebSocket(URL);
 
-    ws.onopen = function(e) {
-        document.getElementById('serverStatus').innerHTML = "Connected";
-        document.getElementById('serverStatus').style.color = "green";
-    };
-    ws.onmessage = function(e) {
+var URL = "ws://25.14.206.214:1738";
+var ws = new WebSocket(URL);
 
-    };
-    ws.onclose = function(e) {
-        document.getElementById('serverStatus').innerHTML = "Not Connected";
-        document.getElementById('serverStatus').style.color = "red";
-    };
-});
+ws.onopen = function(e) {
+    document.getElementById('serverStatus').innerHTML = "Connected";
+    document.getElementById('serverStatus').style.color = "green";
+};
+ws.onmessage = function(e) {
+
+};
+ws.onclose = function(e) {
+    document.getElementById('serverStatus').innerHTML = "Not Connected";
+    document.getElementById('serverStatus').style.color = "red";
+};
