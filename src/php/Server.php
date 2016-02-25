@@ -81,6 +81,7 @@ $host = 'localhost';
 $port = '1738';
 $null = NULL;
 $file = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
+$IO = new IOFacilitate();
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
@@ -121,6 +122,7 @@ while (true) {
 
             echo $received_text . "\n";
             fwrite($file, $received_text . "\n");
+            $IO->parse($received_text);
 
             $response_text = mask($createResponse);
             send_message($response_text);
