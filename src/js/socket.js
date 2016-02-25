@@ -26,14 +26,14 @@
 var URL = "ws://25.14.206.214:1738";
 var ws = new WebSocket(URL);
 
-ws.onopen = function(e) {
+ws.onopen = function() {
     document.getElementById('serverStatus').innerHTML = "Connected";
     document.getElementById('serverStatus').style.color = "green";
 };
-ws.onmessage = function(e) {
+ws.onmessage = function() {
 
 };
-ws.onclose = function(e) {
+ws.onclose = function() {
     document.getElementById('serverStatus').innerHTML = "Not Connected";
     document.getElementById('serverStatus').style.color = "red";
 };

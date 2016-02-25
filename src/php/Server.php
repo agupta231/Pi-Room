@@ -117,7 +117,7 @@ while (true) {
             $createResponse = json_encode(array('server' => $ip . ' : ' . utf8_encode($received_text)));
 
             echo $received_text . "\n";
-            fwrite($file, $received_text);
+            fwrite($file, $received_text . "\n");
 
             $response_text = mask($createResponse);
             send_message($response_text);
