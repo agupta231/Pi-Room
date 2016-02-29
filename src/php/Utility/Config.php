@@ -8,4 +8,6 @@ class Config {
     public static $rPin;
     public static $gPin;
     public static $bPin;
+
+
 }

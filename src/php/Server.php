@@ -5,10 +5,9 @@
  */
 
 require 'IOFacilitate.php';
+require 'Utility/Log.php';
 
-
-function send_message($msg)
-{
+function send_message($msg) {
     global $clients;
     foreach($clients as $changed_socket)
     {
@@ -17,8 +16,7 @@ function send_message($msg)
     return true;
 }
 
-function unmask($text)
-{
+function unmask($text) {
     $length = ord($text[1]) & 127;
     if($length == 126) {
         $masks = substr($text, 4, 4);
@@ -39,8 +37,7 @@ function unmask($text)
     return $text;
 }
 
-function mask($text)
-{
+function mask($text) {
     $b1 = 0x80 | (0x1 & 0x0f);
     $length = strlen($text);
 
@@ -53,8 +50,7 @@ function mask($text)
     return $header.$text;
 }
 
-function perform_handshaking($receved_header,$client_conn, $host, $port)
-{
+function perform_handshaking($receved_header,$client_conn, $host, $port) {
     $headers = array();
     $lines = preg_split("/\r\n/", $receved_header);
     foreach($lines as $line)
@@ -80,8 +76,9 @@ function perform_handshaking($receved_header,$client_conn, $host, $port)
 $host = 'localhost';
 $port = '1738';
 $null = NULL;
-$file = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
+//$file = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
 $IO = new IOFacilitate();
+Log::init();
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
@@ -121,7 +118,7 @@ while (true) {
             $createResponse = json_encode(array('server' => $ip . ' : ' . utf8_encode($received_text)));
 
             echo $received_text . "\n";
-            fwrite($file, $received_text . "\n");
+            fwrite(Log::$logFile, $received_text . "\n");
             $IO->parse($received_text);
 
             $response_text = mask($createResponse);
@@ -143,5 +140,5 @@ while (true) {
     }
 }
 
-fclose($file);
+Log::closeLog();
 socket_close($socket);
