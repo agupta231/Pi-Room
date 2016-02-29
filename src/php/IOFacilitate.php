@@ -16,15 +16,13 @@ class IOFacilitate {
     public function parse($text) {
         $partsArray = explode(",", $text);
 
-        switch($partsArray) {
+        switch($partsArray[0]) {
             case "led":
+                $this->LED->parse($partsArray);
                 break;
 
             default:
                 Log::log("Could not parse data", true);
-        }
-        if($partsArray[0] == "led") {
-            $this->LED->parse($partsArray);
         }
     }
 }

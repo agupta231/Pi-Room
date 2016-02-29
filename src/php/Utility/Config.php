@@ -9,5 +9,4 @@ class Config {
     public static $gPin;
     public static $bPin;
 
-
 }
