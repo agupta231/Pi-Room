@@ -8,6 +8,7 @@ class Log {
     public static $logFile;
 
     public static function init() {
+        echo "Log init function is accessed";
         Log::$logFile = fopen('/var/Log/piroom/Log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
     }
     public static function writeLog($string, $verbose = false) {
