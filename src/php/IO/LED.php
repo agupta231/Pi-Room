@@ -22,7 +22,9 @@ class LED {
     }
     public function parse($inputArray) {
         if($inputArray[1] == "r" || $inputArray[1] == "g" || $inputArray[1] == "b") {
+            echo "parse s1";
             if(is_int(intval($inputArray[2])) && intval($inputArray[2]) >= 0 && intval($inputArray[2]) <= 255) {
+                echo "parse s2";
                 $this->setLED($inputArray[1], intval($inputArray[2]));
                 return true;
             }
@@ -47,6 +49,8 @@ class LED {
         }
     }
     protected function setLED($color, $value) {
+        echo "in Set LED";
+
         switch($color) {
             case "r":
                 shell_exec("pigs p " . Config::$rPin . " " . $value);
