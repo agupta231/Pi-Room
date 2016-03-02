@@ -103,7 +103,7 @@ while (true) {
         perform_handshaking($header, $socket_new, $host, $port);
 
         socket_getpeername($socket_new, $ip);
-        Log::writeLog("Client " . $ip . " connected", true);
+        Log::writeLog("Client " . $ip . " connected\n", true);
         $response = mask(json_encode(array('server' => $ip . ' connected')));
         send_message($response);
 
