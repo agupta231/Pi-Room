@@ -5,7 +5,7 @@
  * Date: 2/25/16
  */
 
-require 'IO/LED.php';
+include_once 'IO/LED.php';
 
 class IOFacilitate {
     protected $LED;

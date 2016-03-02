@@ -4,8 +4,8 @@
  * Date: 2/24/16
  */
 
-require 'IOFacilitate.php';
-require 'Utility/Log.php';
+require_once 'IOFacilitate.php';
+require_once 'Utility/Log.php';
 
 function send_message($msg) {
     global $clients;
