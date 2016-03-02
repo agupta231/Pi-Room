@@ -5,8 +5,8 @@
  * Date: 2/25/16
  */
 
-require "../Utility/Log.php";
-require "../Utility/Config.php";
+include (dirname(__FILE__) . "../Utility/Log.php");
+include (dirname(__FILE__) . "../Utility/Config.php");
 
 class LED {
     public static $status;
