@@ -5,8 +5,8 @@
  * Date: 2/25/16
  */
 
-include (dirname(__FILE__) . "../Utility/Log.php");
-include (dirname(__FILE__) . "../Utility/Config.php");
+include (dirname(__FILE__) . "/../Utility/Log.php");
+include (dirname(__FILE__) . "/../Utility/Config.php");
 
 class LED {
     public static $status;
@@ -51,19 +51,19 @@ class LED {
             case "r":
                 shell_exec("pigs p " . Config::$rPin . " " . $value);
                 LED::$r = $value;
-                Log::log("LED Red set to " . $value, true);
+                Log::writeLog("LED Red set to " . $value, true);
                 break;
 
             case "g":
                 shell_exec("pigs p " . Config::$gPin . " " . $value);
                 LED::$g = $value;
-                Log::log("LED Green set to " . $value, true);
+                Log::writeLog("LED Green set to " . $value, true);
                 break;
 
             case "b":
                 shell_exec("pigs p " . Config::$bPin . " " . $value);
                 LED::$b = $value;
-                Log::log("LED Blue set to " . $value, true);
+                Log::writeLog("LED Blue set to " . $value, true);
                 break;
 
             case "w":
@@ -75,11 +75,11 @@ class LED {
                 LED::$g = $value;
                 LED::$b = $value;
 
-                Log::log('All LEDs set to ' . $value, true);
+                Log::writeLog('All LEDs set to ' . $value, true);
                 break;
 
             default:
-            Log::log("Could not write LED " . $color . " and power " . $value, 1);
+            Log::writeLog("Could not write LED " . $color . " and power " . $value, 1);
         }
     }
 }

@@ -88,7 +88,7 @@ socket_listen($socket);
 
 $clients = array($socket);
 
-Log::log("\n" . date("Y/m/d") . " " . date('h:i:sa') . '\n Socket listening on host: ' . $host . ' port: ' . $port, true);
+Log::writeLog("\n" . date("Y/m/d") . " " . date('h:i:sa') . '\n Socket listening on host: ' . $host . ' port: ' . $port, true);
 
 while (true) {
     $changed = $clients;
@@ -103,7 +103,7 @@ while (true) {
         perform_handshaking($header, $socket_new, $host, $port);
 
         socket_getpeername($socket_new, $ip);
-        Log::log("Client " . $ip . " connected", true);
+        Log::writeLog("Client " . $ip . " connected", true);
         $response = mask(json_encode(array('server' => $ip . ' connected')));
         send_message($response);
 
@@ -118,7 +118,7 @@ while (true) {
 
             $createResponse = json_encode(array('server' => $ip . ' : ' . utf8_encode($received_text)));
 
-            Log::log($received_text . '\n', true);
+            Log::writeLog($received_text . '\n', true);
             $IO->parse($received_text);
 
             $response_text = mask($createResponse);

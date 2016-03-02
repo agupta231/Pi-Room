@@ -4,19 +4,19 @@
  * User: agupta
  * Date: 2/28/16
  */
-class Log {
+class log {
     public static $logFile;
 
     public static function init() {
-        Log::$logFile = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
+        log::$logFile = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
     }
-    public static function log($string, $verbose = false) {
+    public static function writeLog($string, $verbose = false) {
         if($verbose) {
             echo $string;
         }
-        fwrite(Log::$logFile, $string);
+        fwrite(log::$logFile, $string);
     }
     public static function closeLog() {
-        fclose(Log::$logFile);
+        fclose(log::$logFile);
     }
 }

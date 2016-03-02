@@ -22,7 +22,7 @@ class IOFacilitate {
                 break;
 
             default:
-                Log::log("Could not parse data", true);
+                Log::writeLog("Could not parse data", true);
         }
     }
 }
