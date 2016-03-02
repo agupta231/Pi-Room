@@ -51,19 +51,19 @@ class LED {
             case "r":
                 shell_exec("pigs p " . Config::$rPin . " " . $value);
                 LED::$r = $value;
-                Log::writeLog("LED Red set to " . $value, true);
+                Log::writeLog("LED Red set to " . $value . "\r\n", true);
                 break;
 
             case "g":
                 shell_exec("pigs p " . Config::$gPin . " " . $value);
                 LED::$g = $value;
-                Log::writeLog("LED Green set to " . $value, true);
+                Log::writeLog("LED Green set to " . $value . "\r\n", true);
                 break;
 
             case "b":
                 shell_exec("pigs p " . Config::$bPin . " " . $value);
                 LED::$b = $value;
-                Log::writeLog("LED Blue set to " . $value, true);
+                Log::writeLog("LED Blue set to " . $value . "\r\n", true);
                 break;
 
             case "w":
@@ -75,11 +75,11 @@ class LED {
                 LED::$g = $value;
                 LED::$b = $value;
 
-                Log::writeLog('All LEDs set to ' . $value, true);
+                Log::writeLog('All LEDs set to ' . $value . "\r\n", true);
                 break;
 
             default:
-            Log::writeLog("Could not write LED " . $color . " and power " . $value, 1);
+            Log::writeLog("Could not write LED " . $color . " and power " . $value . "\r\n", 1);
         }
     }
 }

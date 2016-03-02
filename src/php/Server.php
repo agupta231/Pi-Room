@@ -88,7 +88,7 @@ socket_listen($socket);
 
 $clients = array($socket);
 
-Log::writeLog("\n" . date("Y/m/d") . " " . date('h:i:sa') . '\n Socket listening on host: ' . $host . ' port: ' . $port, true);
+Log::writeLog("\r\n" . date("Y/m/d") . " " . date('h:i:sa') . "\r\n Socket listening on host: " . $host . ' port: ' . $port, true);
 
 while (true) {
     $changed = $clients;
@@ -118,7 +118,7 @@ while (true) {
 
             $createResponse = json_encode(array('server' => $ip . ' : ' . utf8_encode($received_text)));
 
-            Log::writeLog($received_text . '\n', true);
+            Log::writeLog($received_text . "\r\n", true);
             $IO->parse($received_text);
 
             $response_text = mask($createResponse);
