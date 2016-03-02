@@ -88,7 +88,7 @@ socket_listen($socket);
 
 $clients = array($socket);
 
-Log::writeLog("\r\n" . date("Y/m/d") . " " . date('h:i:sa') . "\r\n Socket listening on host: " . $host . ' port: ' . $port, true);
+Log::writeLog("\r\n" . date("Y/m/d") . " " . date('h:i:sa') . "\r\n Socket listening on host: " . $host . ' port: ' . $port . "\r\n", true);
 
 while (true) {
     $changed = $clients;
