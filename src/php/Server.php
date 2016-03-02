@@ -76,7 +76,7 @@ function perform_handshaking($receved_header,$client_conn, $host, $port) {
 $host = 'localhost';
 $port = '1738';
 $null = NULL;
-//$file = fopen('/var/log/piroom/log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
+//$file = fopen('/var/Log/piroom/Log' . date("-Y-m-d") . '.txt', "a") or die ("File cannot be opened");
 $IO = new IOFacilitate();
 Log::init();
 
