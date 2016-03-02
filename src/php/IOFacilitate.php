@@ -12,12 +12,16 @@ class IOFacilitate {
 
     public function __construct() {
         $this->LED = new LED();
+        echo "LED instaniated";
     }
     public function parse($text) {
         $partsArray = explode(",", $text);
+        echo "parse function started";
+
 
         switch($partsArray[0]) {
             case "led":
+                echo "LED Edited";
                 $this->LED->parse($partsArray);
                 break;
 
