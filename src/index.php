@@ -35,12 +35,13 @@ THE SOFTWARE.
 </head>
 <body>
     <div id="container">
+        <span id="serverStatus"></span>
         <div id="roomColorControl">
-            <input type="radio" name='ledActive' id="onCheckbox" value="on">On</br>
-            <input type='radio' name="ledActive" id='offCheckbox' value="off">Off</br>
+            <input type="radio" name='ledActive' id="onCheckbox" value="on" onclick="ledToggle(1)">On</br>
+            <input type='radio' name="ledActive" id='offCheckbox' value="off" onclick="ledToggle(0)">Off</br>
             <table>
                 <tr>
-                    <td><center>W</center></td>
+                    <td><center><span id="wText">W</span></center></td>
                     <td><center>R</center></td>
                     <td><center>G</center></td>
                     <td><center>B</center></td>
@@ -52,7 +53,7 @@ THE SOFTWARE.
                     <td><input id="ledBvalue" name="ledBvalue" class="ledValue" type="number" max="255" min="0" oninput="ledValue(this.value, 'B')"></td>
                 </tr>
                 <tr>
-                    <td><center><input id="ledWslider" name='ledWslider' type='range' min="0" max="255" step="1" class="ledSlider" oninput="ledSlider(this.value, 'W')"></center></td>
+                    <td><center><input id="ledWslider" name='ledWslider' type='range' min="0" max="255" step="1" class="ledSlider" oninput="WSlider(this.value)"></center></td>
                     <td><center><input id="ledRslider" name='ledRslider' type='range' min="0" max="255" step="1" class="ledSlider" oninput="ledSlider(this.value, 'R')"></center></td>
                     <td><center><input id="ledGslider" name='ledGslider' type='range' min="0" max="255" step="1" class="ledSlider" oninput="ledSlider(this.value, 'G')"></center></td>
                     <td><center><input id="ledBslider" name='ledBslider' type='range' min="0" max="255" step="1" class="ledSlider" oninput="ledSlider(this.value, 'B')"></center></td>

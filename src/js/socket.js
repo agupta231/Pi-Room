@@ -22,8 +22,36 @@
  * THE SOFTWARE.
  */
 
-var ws = new WebSocket("ws://192.168.167.28:8080/");
 
+//var URL = "ws://25.14.206.214:1738";
+var URL = "ws://localhost:1738";
+var ws = new WebSocket(URL);
+
+ws.onopen = function() {
+    document.getElementById('serverStatus').innerHTML = "Connected";
+    document.getElementById('serverStatus').style.color = "green";
+};
 ws.onmessage = function(e) {
-    
-}
+    var inputArray = JSON.parse(e.data);
+
+    if(inputArray["type"] === "ClientInitial") {
+        // Led Control
+        document.getElementById("ledRslider").value = parseInt(inputArray["ledR"]);
+        document.getElementById("ledRvalue").value = parseInt(inputArray["ledR"]);
+        document.getElementById("ledGslider").value = parseInt(inputArray["ledG"]);
+        document.getElementById("ledGvalue").value = parseInt(inputArray["ledG"]);
+        document.getElementById("ledBslider").value = parseInt(inputArray["ledB"]);
+        document.getElementById("ledBvalue").value = parseInt(inputArray["ledB"]);
+
+        if(parseInt(inputArray["ledStatus"])) {
+            document.getElementById("onCheckbox").checked = true;
+        }
+        else {
+            document.getElementById("offCheckbox").checked = true;
+        }
+    }
+};
+ws.onclose = function() {
+    document.getElementById('serverStatus').innerHTML = "Not Connected";
+    document.getElementById('serverStatus').style.color = "red";
+};

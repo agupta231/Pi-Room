@@ -22,16 +22,40 @@
  * THE SOFTWARE.
  */
 
-var ledStatus = false;
-
 function ledSlider(val, color) {
     document.getElementById('led' + color + 'value').value = val;
+    ws.send("led," + color + "," + val);
+
+    document.getElementById("wText").style.color = "gray";
 }
 
 function ledValue(val, color) {
     document.getElementById('led' + color + 'slider').value = val;
+    ws.send("led," + color + "," + val);
+
+    document.getElementById("wText").style.color = "gray";
+}
+
+function ledToggle(status) {
+    if(status) {
+        ws.send("led,S,1");
+    }
+    else {
+        ws.send("led,S,0");
+    }
 }
 
 function WSlider(val) {
+    document.getElementById("wText").style.color = "black";
 
+    document.getElementById("ledRslider").value = val;
+    document.getElementById("ledGslider").value = val;
+    document.getElementById("ledBslider").value = val;
+
+    document.getElementById("ledWvalue").value = val;
+    document.getElementById("ledRvalue").value = val;
+    document.getElementById("ledGvalue").value = val;
+    document.getElementById("ledBvalue").value = val;
+
+    ws.send("led,W," + val);
 }
