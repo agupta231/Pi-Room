@@ -106,6 +106,7 @@ while (true) {
         Log::writeLog("Client " . $ip . " connected\n", true);
         $response = mask(json_encode(array('server' => $ip . ' connected')));
         send_message($response);
+        send_message(mask(json_encode($IO->generateNewClientPacket())));
 
         $found_socket = array_search($socket, $changed);
         unset($changed[$found_socket]);

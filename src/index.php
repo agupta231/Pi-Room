@@ -41,7 +41,7 @@ THE SOFTWARE.
             <input type='radio' name="ledActive" id='offCheckbox' value="off" onclick="ledToggle(0)">Off</br>
             <table>
                 <tr>
-                    <td><center>W</center></td>
+                    <td><center><span id="wText">W</span></center></td>
                     <td><center>R</center></td>
                     <td><center>G</center></td>
                     <td><center>B</center></td>

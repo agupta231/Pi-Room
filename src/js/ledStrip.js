@@ -22,21 +22,18 @@
  * THE SOFTWARE.
  */
 
-var ledStatus = false;
-var whiteToggle = false;
-
 function ledSlider(val, color) {
     document.getElementById('led' + color + 'value').value = val;
     ws.send("led," + color + "," + val);
 
-    whiteToggle = false;
+    document.getElementById("wText").style.color = "gray";
 }
 
 function ledValue(val, color) {
     document.getElementById('led' + color + 'slider').value = val;
     ws.send("led," + color + "," + val);
 
-    whiteToggle = false;
+    document.getElementById("wText").style.color = "gray";
 }
 
 function ledToggle(status) {
@@ -49,6 +46,8 @@ function ledToggle(status) {
 }
 
 function WSlider(val) {
+    document.getElementById("wText").style.color = "black";
+
     document.getElementById("ledRslider").value = val;
     document.getElementById("ledGslider").value = val;
     document.getElementById("ledBslider").value = val;
@@ -58,6 +57,5 @@ function WSlider(val) {
     document.getElementById("ledGvalue").value = val;
     document.getElementById("ledBvalue").value = val;
 
-    ws.send("led,W," + wValue);
-    whiteToggle = true;
+    ws.send("led,W," + val);
 }

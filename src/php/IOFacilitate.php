@@ -26,6 +26,13 @@ class IOFacilitate {
         }
     }
     public function generateNewClientPacket() {
+        if(LED::$status) {
+            $state = 1;
+        }
+        else {
+            $state = 0;
+        }
 
+        return array("type" => "ClientInitial", "ledR" => LED::$r, "ledG" => LED::$g, "ledB" => LED::$b, "ledStatus" => $state);
     }
 }
