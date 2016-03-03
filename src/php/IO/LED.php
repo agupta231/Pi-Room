@@ -21,12 +21,8 @@ class LED {
         LED::$b = 0;
     }
     public function parse($inputArray) {
-        echo "in the parse";
-
-        if($inputArray[1] == "r" || $inputArray[1] == "g" || $inputArray[1] == "b" || $inputArray[1] == "w") {
-            echo "parse s1";
+        if($inputArray[1] == "R" || $inputArray[1] == "G" || $inputArray[1] == "B" || $inputArray[1] == "W") {
             if(is_int(intval($inputArray[2])) && intval($inputArray[2]) >= 0 && intval($inputArray[2]) <= 255) {
-                echo "parse s2";
                 $this->setLED($inputArray[1], intval($inputArray[2]));
                 return true;
             }
@@ -34,7 +30,7 @@ class LED {
                 return false;
             }
         }
-        else if($inputArray[1] == "s" && is_int(intval($inputArray[2]))) {
+        else if($inputArray[1] == "S" && is_int(intval($inputArray[2]))) {
             $this->statusChange(intval($inputArray[2]));
             return true;
         }
@@ -51,31 +47,29 @@ class LED {
         }
     }
     protected function setLED($color, $value) {
-        echo "in Set LED";
-
         switch($color) {
-            case "r":
-                shell_exec("pigs p " . Config::$rPin . " " . $value);
+            case "R":
+                //shell_exec("pigs p " . Config::$rPin . " " . $value);
                 LED::$r = $value;
                 Log::writeLog("LED Red set to " . $value . "\r\n", true);
                 break;
 
-            case "g":
-                shell_exec("pigs p " . Config::$gPin . " " . $value);
+            case "G":
+                //shell_exec("pigs p " . Config::$gPin . " " . $value);
                 LED::$g = $value;
                 Log::writeLog("LED Green set to " . $value . "\r\n", true);
                 break;
 
-            case "b":
-                shell_exec("pigs p " . Config::$bPin . " " . $value);
+            case "B":
+                //shell_exec("pigs p " . Config::$bPin . " " . $value);
                 LED::$b = $value;
                 Log::writeLog("LED Blue set to " . $value . "\r\n", true);
                 break;
 
-            case "w":
-                shell_exec("pigs p " . Config::$rPin . " " . $value);
-                shell_exec("pigs p " . Config::$gPin . " " . $value);
-                shell_exec("pigs p " . Config::$bPin . " " . $value);
+            case "W":
+//                shell_exec("pigs p " . Config::$rPin . " " . $value);
+//                shell_exec("pigs p " . Config::$gPin . " " . $value);
+//                shell_exec("pigs p " . Config::$bPin . " " . $value);
 
                 LED::$r = $value;
                 LED::$g = $value;

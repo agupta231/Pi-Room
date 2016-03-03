@@ -23,7 +23,8 @@
  */
 
 
-var URL = "ws://25.14.206.214:1738";
+//var URL = "ws://25.14.206.214:1738";
+var URL = "ws://localhost:1738";
 var ws = new WebSocket(URL);
 
 ws.onopen = function() {
