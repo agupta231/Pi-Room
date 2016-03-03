@@ -41,35 +41,54 @@ class LED {
     protected function statusChange($newStatus) {
         if($newStatus) {
             LED::$status = true;
+
+                shell_exec("pigs p " . Config::$rPin . " " . LED::$r);
+                shell_exec("pigs p " . Config::$gPin . " " . LED::$g);
+                shell_exec("pigs p " . Config::$bPin . " " . LED::$b);
         }
         else {
             LED::$status = false;
+
+                shell_exec("pigs p " . Config::$rPin . " 0");
+                shell_exec("pigs p " . Config::$gPin . " 0");
+                shell_exec("pigs p " . Config::$bPin . " 0");
         }
     }
     protected function setLED($color, $value) {
         switch($color) {
             case "R":
-                //shell_exec("pigs p " . Config::$rPin . " " . $value);
+                if(LED::$status) {
+                    shell_exec("pigs p " . Config::$rPin . " " . $value);
+                }
+
                 LED::$r = $value;
                 Log::writeLog("LED Red set to " . $value . "\r\n", true);
                 break;
 
             case "G":
-                //shell_exec("pigs p " . Config::$gPin . " " . $value);
+                if(LED::$status) {
+                    shell_exec("pigs p " . Config::$gPin . " " . $value);
+                }
+
                 LED::$g = $value;
                 Log::writeLog("LED Green set to " . $value . "\r\n", true);
                 break;
 
             case "B":
-                //shell_exec("pigs p " . Config::$bPin . " " . $value);
+                if(LED::$status) {
+                    shell_exec("pigs p " . Config::$bPin . " " . $value);
+                }
+
                 LED::$b = $value;
                 Log::writeLog("LED Blue set to " . $value . "\r\n", true);
                 break;
 
             case "W":
-//                shell_exec("pigs p " . Config::$rPin . " " . $value);
-//                shell_exec("pigs p " . Config::$gPin . " " . $value);
-//                shell_exec("pigs p " . Config::$bPin . " " . $value);
+                if(LED::$status) {
+                shell_exec("pigs p " . Config::$rPin . " " . $value);
+                shell_exec("pigs p " . Config::$gPin . " " . $value);
+                shell_exec("pigs p " . Config::$bPin . " " . $value);
+                }
 
                 LED::$r = $value;
                 LED::$g = $value;

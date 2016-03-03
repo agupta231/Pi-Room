@@ -25,4 +25,7 @@ class IOFacilitate {
                 Log::writeLog("Could not parse data", true);
         }
     }
+    public function generateNewClientPacket() {
+
+    }
 }
