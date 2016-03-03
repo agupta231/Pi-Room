@@ -21,8 +21,8 @@ class IOFacilitate {
 
         switch($partsArray[0]) {
             case "led":
-                echo "LED Edited";
                 $this->LED->parse($partsArray);
+                echo "LED Edited";
                 break;
 
             default:

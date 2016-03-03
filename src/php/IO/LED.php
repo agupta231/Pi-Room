@@ -21,7 +21,9 @@ class LED {
         LED::$b = 0;
     }
     public function parse($inputArray) {
-        if($inputArray[1] == "r" || $inputArray[1] == "g" || $inputArray[1] == "b") {
+        echo "in the parse";
+
+        if($inputArray[1] == "r" || $inputArray[1] == "g" || $inputArray[1] == "b" || $inputArray[1] == "w") {
             echo "parse s1";
             if(is_int(intval($inputArray[2])) && intval($inputArray[2]) >= 0 && intval($inputArray[2]) <= 255) {
                 echo "parse s2";
