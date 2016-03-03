@@ -49,27 +49,15 @@ function ledToggle(status) {
 }
 
 function WSlider(val) {
-    if(!whiteToggle) {
-        var r = document.getElementById("ledRvalue").value;
-        var g = document.getElementById("ledGvalue").value;
-        var b = document.getElementById("ledBvalue").value;
+    document.getElementById("ledRslider").value = val;
+    document.getElementById("ledGslider").value = val;
+    document.getElementById("ledBslider").value = val;
 
-        var wValue = (r + g + b) / 3;
+    document.getElementById("ledWvalue").value = val;
+    document.getElementById("ledRvalue").value = val;
+    document.getElementById("ledGvalue").value = val;
+    document.getElementById("ledBvalue").value = val;
 
-        document.getElementById("ledWValue").value = wValue;
-        document.getElementById("ledRvalue").value = wValue;
-        document.getElementById("ledGvalue").value = wValue;
-        document.getElementById("ledBvalue").value = wValue;
-
-        ws.send("led,W," + wValue);
-        whiteToggle = true;
-    }
-    else {
-        document.getElementById("ledWValue").value = val;
-        document.getElementById("ledRvalue").value = val;
-        document.getElementById("ledGvalue").value = val;
-        document.getElementById("ledBvalue").value = val;
-
-        ws.send("led,W," + val);
-    }
+    ws.send("led,W," + wValue);
+    whiteToggle = true;
 }
