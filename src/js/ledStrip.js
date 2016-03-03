@@ -39,6 +39,15 @@ function ledValue(val, color) {
     whiteToggle = false;
 }
 
+function ledToggle(status) {
+    if(status) {
+        ws.send("led,S,1");
+    }
+    else {
+        ws.send("led,S,0");
+    }
+}
+
 function WSlider(val) {
     if(!whiteToggle) {
         var r = document.getElementById("ledRvalue").value;
@@ -52,7 +61,7 @@ function WSlider(val) {
         document.getElementById("ledGvalue").value = wValue;
         document.getElementById("ledBvalue").value = wValue;
 
-        ws.send("led,w," + wValue);
+        ws.send("led,W," + wValue);
         whiteToggle = true;
     }
     else {
@@ -61,6 +70,6 @@ function WSlider(val) {
         document.getElementById("ledGvalue").value = val;
         document.getElementById("ledBvalue").value = val;
 
-        ws.send("led,w," + val);
+        ws.send("led,W," + val);
     }
 }

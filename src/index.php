@@ -37,8 +37,8 @@ THE SOFTWARE.
     <div id="container">
         <span id="serverStatus"></span>
         <div id="roomColorControl">
-            <input type="radio" name='ledActive' id="onCheckbox" value="on">On</br>
-            <input type='radio' name="ledActive" id='offCheckbox' value="off">Off</br>
+            <input type="radio" name='ledActive' id="onCheckbox" value="on" onclick="ledToggle(1)">On</br>
+            <input type='radio' name="ledActive" id='offCheckbox' value="off" onclick="ledToggle(0)">Off</br>
             <table>
                 <tr>
                     <td><center>W</center></td>
