@@ -5,8 +5,7 @@
  * Date: 2/28/16
  */
 class Config {
-    public static $rPin;
-    public static $gPin;
-    public static $bPin;
-
+    public static $rPin = 17;
+    public static $gPin = 27;
+    public static $bPin = 22;
 }
