@@ -13,3 +13,8 @@ Basic LED Strip support
 Client should be able to access the Pi's LED webpage through a webpage, and 
 there will be a realtime connection between the client and the server, making
 for a seamless experience.
+
+#1.2
+Alarm Clock
+Integrates with Google Calendar to have the LEDs light up as an artificial
+sunrise to give a more "natural" wake up
