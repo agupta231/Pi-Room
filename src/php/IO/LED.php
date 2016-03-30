@@ -1,10 +1,5 @@
 <?php
 
-/**
- * User: agupta
- * Date: 2/25/16
- */
-
 include_once (dirname(__FILE__) . "/../Utility/Log.php");
 include_once (dirname(__FILE__) . "/../Utility/Config.php");
 

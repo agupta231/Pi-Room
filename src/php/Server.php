@@ -1,8 +1,4 @@
 <?php
-/**
- * User: agupta
- * Date: 2/24/16
- */
 
 require_once 'IOFacilitate.php';
 require_once 'Utility/Log.php';

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * User: agupta
- * Date: 2/25/16
- */
-
 include_once 'IO/LED.php';
 
 class IOFacilitate {
